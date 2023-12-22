@@ -1,6 +1,6 @@
 
 # Isolated Sign Language Recogonition
-Google American Sign Language detection using state-of-art deep learning models is a Kaggle competition (https://www.kaggle.com/competitions/asl-signs). The project's purpose is to classify solitary American Sign Language (ASL) signs. We trained a transformer and LSTM models on labeled landmark data. The delivarable is a TensorFlow Lite model fro mobile application. 
+Google American Sign Language detection using state-of-art deep learning models is a [Kaggle competition](https://www.kaggle.com/competitions/asl-signs). The project's purpose is to classify solitary American Sign Language (ASL) signs. We trained a transformer and LSTM models on labeled landmark data. The delivarable is a TensorFlow Lite model fro mobile application. 
 
 ## Data 
 The landmarks were extracted from raw videos with the MediaPipe holistic model.
@@ -26,11 +26,11 @@ The landmark data are in parquet. Each parquet file had followings columns:
 ![Workflow](https://github.com/supreetn/American_Isolated_Sign_Language_Detection/assets/109064336/bd9fb599-c87a-43ca-a2b8-ce5d8799a31b)
 
 ## Methodology
-- *Transformer-LSTM*:   
+- *Transformer-LSTM*: [Jupyter Notebook](https://github.com/swethasubu93/Google-Isolated-Sign-Language-Recognition/blob/main/Code/ASL_transformer.ipynb)   
     The architecture combines Transformer and LSTM layers for sequence processing.  Multi-head attention focuses on key sequence elements. LSTM layers handle sequential data. A 30% dropout prevents overfitting. Two dense layers with softmax produce class probabilities.
-- *LSTM*:   
+- *LSTM*: [Jupyter Notebook](https://github.com/swethasubu93/Google-Isolated-Sign-Language-Recognition/blob/main/Code/ASL_LSTM.ipynb)   
     The model takes flattened 3D hand movement sequences and predicts ASL sign labels. It includes three dense layers with normalization, ReLU activation, and 0.07 dropout. An LSTM layer captures temporal dynamics. The output layer yields sign label probabilities, selecting the highest probability as the prediction.
-- *Inference Model*:    
+- *Inference Model*: (Code present in both notebooks)   
     For inference, extra layers were added to adapt the model to the 3-dimensional testing data for the competition. The model initially trained on 2D input, with specific indices and a shape, was adjusted to handle this new format. This adaptation process was applied for inference of testing data (approx. 40,000 videos).
 ## Results 
 - The results of the two models with infrence is given below.
